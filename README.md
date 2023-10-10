@@ -12,6 +12,7 @@ Learning next js from the beginning
 
 - In static generation render all pages at the build time
 - getStaticProps() function helps to fetch data from api and provide the data to the component as props.
+- Drawbacks- data may become stale, hard to scale to many pages.
 
 ### 2. SSR(Server side rendering)
 
@@ -33,3 +34,9 @@ Learning next js from the beginning
   }
   ```
   - In this example the page is rebuilding on every 30 seconds
+
+## API routes
+
+- API routes provide a solution to build public apis with next.js.
+- Any files inside `pages/api` directory will be treated as an api endpoint instead of a page.
+- They are server side only bundles and won't increase your client side bundle-size.
