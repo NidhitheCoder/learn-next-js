@@ -18,6 +18,7 @@ Learning next js from the beginning
 
 - In server side rendering generate page on each request time.
 - getServerSideProps function helps to fetch data from api and provide the data to the component as props.
+- Drawbacks - slower, inefficient data caching.
 
 ### 3. Incremental static generation
 
