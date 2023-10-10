@@ -1,0 +1,17 @@
+[
+    {
+        "id": "ford",
+        "color": "black",
+        "image": "https://st2.depositphotos.com/1955233/7732/i/450/depositphotos_77325582-stock-photo-ford-mustang-car-on-display.jpg"
+    },
+    {
+        "id": "lambo",
+        "color": "orange",
+        "image": "https://st2.depositphotos.com/1150119/7925/i/450/depositphotos_79258638-stock-photo-gallardo.jpg"
+    },
+    {
+        "id": "tesla",
+        "color": "blue",
+        "image": "https://st4.depositphotos.com/1671840/23271/i/450/depositphotos_232718546-stock-photo-frankfurt-germany-sep-2015-tesla.jpg"
+    }
+]
