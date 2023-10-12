@@ -13,6 +13,7 @@ Learning next js from the beginning
 - In static generation render all pages at the build time
 - getStaticProps() function helps to fetch data from api and provide the data to the component as props.
 - Drawbacks- data may become stale, hard to scale to many pages.
+- Build all files at once and build all files when 1 changes.
 
 ### 2. SSR(Server side rendering)
 
@@ -35,6 +36,7 @@ Learning next js from the beginning
   }
   ```
   - In this example the page is rebuilding on every 30 seconds
+  - when first visit generate the page and when second plus visit happen serve static pages.
 
 ## API routes
 

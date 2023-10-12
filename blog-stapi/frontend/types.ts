@@ -4,6 +4,7 @@ export interface BlogAttribute {
   rating: number;
   title: string;
   updatedAt: string;
+  slug: string;
 }
 
 export interface Blog {
