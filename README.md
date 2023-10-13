@@ -43,3 +43,7 @@ Learning next js from the beginning
 - API routes provide a solution to build public apis with next.js.
 - Any files inside `pages/api` directory will be treated as an api endpoint instead of a page.
 - They are server side only bundles and won't increase your client side bundle-size.
+
+
+Reference : Graphql, Next.js and Strapi
+- https://dev.to/kadiemq/typescript-nextjs-strapi-and-graphql-an-overview-of-how-i-created-my-blog-61g

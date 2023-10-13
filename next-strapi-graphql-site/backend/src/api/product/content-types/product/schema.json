@@ -24,6 +24,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::seller.seller"
+    },
+    "imageURL": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
