@@ -1,6 +1,7 @@
 import client from "@/graphql/client";
 import { PRODUCT_LIST } from "@/graphql/products";
 import { IProduct } from "@/types/product";
+import Link from "next/link";
 
 interface ProductListProps {
   products: IProduct[];
@@ -19,7 +20,8 @@ const ProductsList = ({ products }: ProductListProps) => {
             productAttributes.imageURL?.data.attributes.formats.thumbnail.url;
 
           return (
-            <div
+            <Link
+              href={`/products/${product.id}`}
               key={product.id}
               className="bg-slate-400 border-2 border-solid border-slate-100 rounded p-4 flex flex-row h-auto justify-between min-w-min"
             >
@@ -52,7 +54,7 @@ const ProductsList = ({ products }: ProductListProps) => {
                   className="h-auto w-full min-w-[100px]"
                 />
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
