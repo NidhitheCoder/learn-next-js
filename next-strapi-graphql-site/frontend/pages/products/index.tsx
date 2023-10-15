@@ -1,7 +1,7 @@
+import Link from "next/link";
 import client from "@/graphql/client";
 import { PRODUCT_LIST } from "@/graphql/products";
 import { IProduct } from "@/types/product";
-import Link from "next/link";
 
 interface ProductListProps {
   products: IProduct[];

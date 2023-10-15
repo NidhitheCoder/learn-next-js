@@ -14,6 +14,8 @@ type IProductCategory = {
 interface ProductSellerField {
   attributes: {
     name: string;
+    address: string;
+    contactNumber: string;
   };
 }
 
@@ -26,6 +28,7 @@ interface ProductImageAttributes {
   attributes: {
     formats: {
       thumbnail: { url: string };
+      medium: { url: string };
     };
   };
 }

@@ -59,7 +59,9 @@ export const SINGLE_PRODUCT = gql(`query ($productId: ID) {
           seller {
             data {
               attributes {
-                name
+                name,
+                address,
+                contactNumber
               }
             }
           }
