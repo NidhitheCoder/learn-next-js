@@ -1,5 +1,5 @@
 // Category
-interface ProductCategoryField {
+export interface ProductCategoryField {
   attributes: {
     name: string;
     color: string;

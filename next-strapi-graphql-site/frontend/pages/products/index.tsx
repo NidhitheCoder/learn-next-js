@@ -2,6 +2,7 @@ import Link from "next/link";
 import client from "@/graphql/client";
 import { PRODUCT_LIST } from "@/graphql/products";
 import { IProduct } from "@/types/product";
+import CategoryList from "@/components/CategoryList";
 
 interface ProductListProps {
   products: IProduct[];
@@ -23,7 +24,7 @@ const ProductsList = ({ products }: ProductListProps) => {
             <Link
               href={`/products/${product.id}`}
               key={product.id}
-              className="bg-slate-400 border-2 border-solid border-slate-100 rounded p-4 flex flex-row h-auto justify-between min-w-min"
+              className="bg-slate-900 border-2 border-solid border-slate-800 rounded p-4 flex flex-row h-auto justify-between min-w-min"
             >
               <div>
                 <h1 className="font-bold text-2xl mb-2">
@@ -34,19 +35,7 @@ const ProductsList = ({ products }: ProductListProps) => {
                   <span>{seller}</span>
                 </div>
                 <h1 className="mb-2 font-bold">Categories :</h1>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-1">
-                  {categories?.map(({ attributes: categoryAttributes }) => {
-                    return (
-                      <div
-                        key={categoryAttributes.name}
-                        className="px-4 py-1 rounded-3xl w-fit"
-                        style={{ backgroundColor: categoryAttributes.color }}
-                      >
-                        <p>{categoryAttributes.name}</p>
-                      </div>
-                    );
-                  })}
-                </div>
+                <CategoryList categories={categories} />
               </div>
               <div className="px-2">
                 <img

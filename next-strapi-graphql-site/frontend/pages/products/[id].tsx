@@ -2,6 +2,7 @@ import Link from "next/link";
 import client from "@/graphql/client";
 import { PRODUCT_LIST, SINGLE_PRODUCT } from "@/graphql/products";
 import { IProduct } from "@/types/product";
+import CategoryList from "@/components/CategoryList";
 
 interface ServerProps {
   params: {
@@ -24,7 +25,7 @@ const Product = ({ product }: ProductProps) => {
   const productSeller = productAttributes.seller?.data.attributes;
 
   return (
-    <div className="grid grid-cols-6 w-full h-full min-h-screen bg-gradient-to-r from-purple-500 via-indigo-500  to-purple-500">
+    <div className="grid grid-cols-6 w-full h-full min-h-screen bg-gradient-to-r from-black via-slate-800 to-black">
       <div className="col-start-2 col-end-4 flex flex-col justify-center">
         <Link
           className="mb-8 font-extrabold text-blue-700 underline"
@@ -32,7 +33,7 @@ const Product = ({ product }: ProductProps) => {
         >
           Back
         </Link>
-        <img className="w-full h-auto" src={productImageURL} />
+        <img className="w-full h-auto max-w-lg" src={productImageURL} />
       </div>
       <div className="col-start-4 col-end-6 flex justify-center items-center">
         <div className="p-8 w-full aspect-square">
@@ -40,25 +41,11 @@ const Product = ({ product }: ProductProps) => {
             <p>Product ID : </p>
             <p className="pl-2">{product.id}</p>
           </div>
-          <p className="font-bold text-7xl mb-4 bg-gradient-to-r from-pink-400 to-purple-600 bg-clip-text text-transparent">
+          <p className="font-bold text-7xl mb-4 bg-gradient-to-r from-slate-400 via-slate-700 to-slate-700 bg-clip-text text-transparent">
             {productAttributes.name}
           </p>
           <h1 className="font-bold text-2xl mb-2">Categories</h1>
-          <div className="flex flex-row gap-2 mb-8">
-            {productCategories?.map(({ attributes: categoryAttributes }) => {
-              return (
-                <div
-                  key={categoryAttributes.name}
-                  className="px-4 py-1 rounded-3xl w-fit"
-                  style={{ backgroundColor: categoryAttributes.color }}
-                >
-                  <p className="text-green-500 font-bold">
-                    {categoryAttributes.name}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          <CategoryList categories={productCategories} />
           <div className="mb-8">
             <p className="mb-2 font-bold text-2xl">Description</p>
             <p className="italic">
