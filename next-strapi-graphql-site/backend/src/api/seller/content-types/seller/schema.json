@@ -20,6 +20,12 @@
     },
     "contactNumber": {
       "type": "biginteger"
+    },
+    "details": {
+      "type": "text"
+    },
+    "TINNo": {
+      "type": "string"
     }
   }
 }

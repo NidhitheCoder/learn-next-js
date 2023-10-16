@@ -19,6 +19,14 @@ export default function Home() {
             Products
           </Link>
         </li>
+        <li>
+          <Link
+            className="text-xl text-blue-700 font-bold underline"
+            href="/sellers"
+          >
+            Sellers
+          </Link>
+        </li>
       </ul>
     </div>
   );

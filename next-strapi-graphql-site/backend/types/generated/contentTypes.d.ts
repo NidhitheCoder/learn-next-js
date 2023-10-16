@@ -766,6 +766,8 @@ export interface ApiSellerSeller extends Schema.CollectionType {
     name: Attribute.String;
     address: Attribute.Text;
     contactNumber: Attribute.BigInteger;
+    details: Attribute.Text;
+    TINNo: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
