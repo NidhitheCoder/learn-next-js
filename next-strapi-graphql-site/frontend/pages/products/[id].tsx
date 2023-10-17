@@ -3,6 +3,7 @@ import client from "@/graphql/client";
 import { PRODUCT_LIST, SINGLE_PRODUCT } from "@/graphql/products";
 import { IProduct } from "@/types/product";
 import CategoryList from "@/components/CategoryList";
+import Navbar from "@/components/Navbar";
 
 interface ServerProps {
   params: {
@@ -15,7 +16,6 @@ interface ProductProps {
 }
 
 const Product = ({ product }: ProductProps) => {
-  console.log(product);
   const productAttributes = product.attributes;
   const productImagePath =
     productAttributes.imageURL?.data.attributes.formats.medium?.url ||
@@ -26,19 +26,12 @@ const Product = ({ product }: ProductProps) => {
 
   return (
     <div className="grid grid-cols-6 w-full h-full min-h-screen bg-gradient-to-r from-black via-slate-800 to-black">
-      <div className="p-6">
-        <Link
-          className="mb-8 font-extrabold text-blue-700 underline"
-          href="/products"
-        >
-          Back
-        </Link>
-      </div>
-      <div className="flex flex-col justify-center">
+      <Navbar backLabel="Back" backPath="/products" />
+      <div className="flex flex-col justify-center col-start-2 col-end-4">
         <img className="w-full h-auto max-w-lg" src={productImageURL} />
       </div>
       <div className="col-start-4 col-end-6 flex justify-center items-center">
-        <div className="p-8 w-full aspect-square">
+        <div className="p-8 w-full aspect-square max-w-lg">
           <div className="flex flex-row text-slate-300">
             <p>Product ID : </p>
             <p className="pl-2">{product.id}</p>

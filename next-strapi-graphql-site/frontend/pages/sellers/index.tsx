@@ -1,8 +1,8 @@
-import Link from "next/link";
 import SellerItem from "@/components/SellerItem";
 import client from "@/graphql/client";
 import { SELLER_LIST } from "@/graphql/sellers";
 import { ISeller } from "@/types/sellet";
+import Navbar from "@/components/Navbar";
 
 interface SellerListProps {
   sellers: ISeller[];
@@ -10,15 +10,14 @@ interface SellerListProps {
 
 const SellersList = ({ sellers }: SellerListProps) => {
   return (
-    <div className="flex- flex-col items-center w-full p-6">
-      <div className="flex flex-row justify-between mb-8">
-        <Link href="/">Back to home</Link>
-        <h1 className="text-center mb-4 text-3xl font-extrabold">
-          Sellers list
-        </h1>
-        <p className="text-lime-500">{`${sellers.length} item(s)`}</p>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="flex- flex-col items-center w-full">
+      <Navbar
+        backLabel="Back to home"
+        backPath="/"
+        pageTitle="Sellers list"
+        itemsLength={sellers.length}
+      />
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
         {sellers.map((seller: ISeller) => (
           <SellerItem seller={seller} key={seller.id} />
         ))}
