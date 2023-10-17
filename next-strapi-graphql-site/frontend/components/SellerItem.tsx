@@ -21,23 +21,26 @@ const SellerItem = ({ seller }: SellerItemProps) => {
     <>
       <div
         onClick={onItemClick}
-        className="flex flex-col justify-center items-center p-6 bg-slate-700 border-2 border-solid border-slate-900 rounded max-h-fit"
+        className="flex flex-col justify-center items-start p-6 bg-slate-700 border-2 border-solid border-slate-900 rounded max-h-fit gap-1"
       >
-        <p>{sellerAttributes.TINNo}</p>
-        <p>{sellerAttributes.name}</p>
+        <p className="text-2xl font-bold">{sellerAttributes.name}</p>
         <p>{sellerAttributes.address}</p>
-        <p>{sellerAttributes.contactNumber}</p>
+        {sellerAttributes.contactNumber && (
+          <p>{`Ph No: ${sellerAttributes.contactNumber}`}</p>
+        )}
       </div>
       {shouldExpand && (
-        <div className="absolute inset-0 min-h-screen">
-          <div className="bg-slate-700 rounded-lg p-8 h-3/4 w-3/4 m-auto">
+        <div className="absolute inset-0 min-h-screen flex justify-center items-center bg-slate-800/60">
+          <div className="bg-slate-700 rounded p-8 h-3/4 w-3/5 m-auto overflow-y-auto overflow-x-hidden">
             <div className="flex flex-row justify-between">
-              <p>{sellerAttributes.name}</p>
-              <button onClick={onCloseButtonClick}>X</button>
+              <p className="font-bold text-2xl mb-4 capitalize">{sellerAttributes.name}</p>
+              <button className="font-bold h-full" onClick={onCloseButtonClick}>
+                X
+              </button>
             </div>
-            <p>{sellerAttributes.address}</p>
-            <p>{sellerAttributes.contactNumber}</p>
-            <p className="font-bold underline">Details</p>
+            <p className="capitalize">{sellerAttributes.address}</p>
+            <p>Phone Number: {sellerAttributes.contactNumber}</p>
+            <p className="font-bold underline mt-4">Details</p>
             <p>{sellerAttributes.details}</p>
           </div>
         </div>

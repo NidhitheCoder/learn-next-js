@@ -26,13 +26,15 @@ const Product = ({ product }: ProductProps) => {
 
   return (
     <div className="grid grid-cols-6 w-full h-full min-h-screen bg-gradient-to-r from-black via-slate-800 to-black">
-      <div className="col-start-2 col-end-4 flex flex-col justify-center">
+      <div className="p-6">
         <Link
           className="mb-8 font-extrabold text-blue-700 underline"
           href="/products"
         >
           Back
         </Link>
+      </div>
+      <div className="flex flex-col justify-center">
         <img className="w-full h-auto max-w-lg" src={productImageURL} />
       </div>
       <div className="col-start-4 col-end-6 flex justify-center items-center">
@@ -57,7 +59,7 @@ const Product = ({ product }: ProductProps) => {
           </div>
           <div className="mb-4">
             <p className="font-bold text-2xl">Seller</p>
-            <p>{productSeller?.name}</p>
+            <Link href="/sellers">{productSeller?.name}</Link>
             <p>{productSeller?.address}</p>
             <p>{`Ph No: ${productSeller?.contactNumber}`}</p>
           </div>
