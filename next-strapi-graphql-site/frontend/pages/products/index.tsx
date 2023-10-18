@@ -3,6 +3,7 @@ import client from "@/graphql/client";
 import { PRODUCT_LIST } from "@/graphql/products";
 import { IProduct } from "@/types/product";
 import CategoryList from "@/components/CategoryList";
+import Navbar from "@/components/Navbar";
 
 interface ProductListProps {
   products: IProduct[];
@@ -10,8 +11,13 @@ interface ProductListProps {
 
 const ProductsList = ({ products }: ProductListProps) => {
   return (
-    <div className="p-4">
-      <h1 className="font-bold text-3xl text-slate-200">Product list page</h1>
+    <div>
+      <Navbar
+        backLabel="Back to home"
+        backPath="/"
+        pageTitle="Product list page"
+        itemsLength={products.length}
+      />
       <div className="p-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
         {products.map((product) => {
           const productAttributes = product.attributes;

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_components_navbars",
+  "info": {
+    "displayName": "Navbar",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "backLabel": {
+      "type": "string"
+    },
+    "backURL": {
+      "type": "string"
+    },
+    "pageTitle": {
+      "type": "string"
+    },
+    "ItemsLabel": {
+      "type": "string"
+    }
+  }
+}
