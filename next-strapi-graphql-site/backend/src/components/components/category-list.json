@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_components_category_lists",
+  "info": {
+    "displayName": "CategoryList",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    }
+  }
+}

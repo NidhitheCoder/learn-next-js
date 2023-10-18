@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_components_sellet_items",
+  "info": {
+    "displayName": "SelletItem",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "closeIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "phoneLabel": {
+      "type": "string"
+    },
+    "detailsHeader": {
+      "type": "string"
+    }
+  }
+}
