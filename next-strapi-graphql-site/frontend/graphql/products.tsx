@@ -18,7 +18,14 @@ export const PRODUCT_LIST = gql(`query {
             {
               attributes {
                 name,
-                color
+                color,
+                icon {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
               }
             }
                   },
@@ -52,7 +59,14 @@ export const SINGLE_PRODUCT = gql(`query ($productId: ID) {
             {
               attributes {
                 name,
-                color
+                color,
+                icon {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
               }
             }
                   },

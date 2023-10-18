@@ -1,8 +1,17 @@
 // Category
+
+interface IProductCategoryIcon {
+  data: {
+    attributes: {
+      url: string;
+    };
+  };
+}
 export interface ProductCategoryField {
   attributes: {
     name: string;
     color: string;
+    icon: IProductCategoryIcon;
   };
 }
 
