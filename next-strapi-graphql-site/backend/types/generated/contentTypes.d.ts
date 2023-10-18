@@ -715,7 +715,7 @@ export interface ApiPagePage extends Schema.CollectionType {
   info: {
     singularName: 'page';
     pluralName: 'pages';
-    displayName: 'page';
+    displayName: 'pages';
     description: '';
   };
   options: {
@@ -730,12 +730,36 @@ export interface ApiPagePage extends Schema.CollectionType {
         'components.sellet-item'
       ]
     >;
+    paths: Attribute.Relation<'api::page.page', 'oneToMany', 'api::path.path'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPathPath extends Schema.CollectionType {
+  collectionName: 'paths';
+  info: {
+    singularName: 'path';
+    pluralName: 'paths';
+    displayName: 'paths';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    pathName: Attribute.String;
+    pathURL: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::path.path', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::path.path', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -835,6 +859,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
       'api::page.page': ApiPagePage;
+      'api::path.path': ApiPathPath;
       'api::product.product': ApiProductProduct;
       'api::seller.seller': ApiSellerSeller;
     }

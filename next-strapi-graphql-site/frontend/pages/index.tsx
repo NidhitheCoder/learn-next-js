@@ -1,15 +1,19 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import Link from "next/link";
+import client from "@/graphql/client";
+import { SINGLE_PAGE } from "@/graphql/pages";
+import Navbar from "@/components/Navbar";
+interface HomePageProps {
+  pageDetails: any;
+}
 
-const inter = Inter({ subsets: ["latin"] });
+const Home = ({ pageDetails }: HomePageProps) => {
+  const navbarData = pageDetails.sections.find(
+    (section: any) => section.__typename === "ComponentComponentsNavbar"
+  );
 
-export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen w-full">
-      <h1 className="mb-4 p-4 font-bold text-4xl text-violet-700">
-        Welcome !!!
-      </h1>
+    <div className="flex flex-col min-h-screen w-full">
+      <Navbar pageTitle={navbarData.pageTitle} />
       <ul>
         <li>
           <Link
@@ -30,4 +34,20 @@ export default function Home() {
       </ul>
     </div>
   );
-}
+};
+
+export const getStaticProps = async () => {
+  const { data } = await client.query({
+    query: SINGLE_PAGE,
+    variables: { pageName: "Homepage" },
+  });
+  const pageDetails = data.pages.data[0].attributes;
+
+  return {
+    props: {
+      pageDetails,
+    },
+  };
+};
+
+export default Home;

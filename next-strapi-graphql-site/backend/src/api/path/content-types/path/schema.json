@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "paths",
+  "info": {
+    "singularName": "path",
+    "pluralName": "paths",
+    "displayName": "paths"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pathName": {
+      "type": "string"
+    },
+    "pathURL": {
+      "type": "string"
+    }
+  }
+}
