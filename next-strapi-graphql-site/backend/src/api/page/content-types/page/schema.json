@@ -4,7 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "page",
+    "displayName": "pages",
     "description": ""
   },
   "options": {
@@ -22,6 +22,11 @@
         "components.category-list",
         "components.sellet-item"
       ]
+    },
+    "paths": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::path.path"
     }
   }
 }

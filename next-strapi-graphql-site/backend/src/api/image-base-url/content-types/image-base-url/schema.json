@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "image_base_urls",
+  "info": {
+    "singularName": "image-base-url",
+    "pluralName": "image-base-urls",
+    "displayName": "imageBaseUrl"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    }
+  }
+}

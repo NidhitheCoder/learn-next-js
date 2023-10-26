@@ -12,10 +12,12 @@ const SellersList = ({ sellers }: SellerListProps) => {
   return (
     <div className="flex- flex-col items-center w-full">
       <Navbar
-        backLabel="Back to home"
-        backPath="/"
-        pageTitle="Sellers list"
-        itemsLength={sellers.length}
+        data={{
+          backLabel: "Back to home",
+          backPath: "/",
+          pageTitle: "Sellers list",
+          itemsLength: sellers.length,
+        }}
       />
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
         {sellers.map((seller: ISeller) => (

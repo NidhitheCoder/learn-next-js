@@ -10,14 +10,16 @@
     "backLabel": {
       "type": "string"
     },
-    "backURL": {
-      "type": "string"
-    },
     "pageTitle": {
       "type": "string"
     },
     "ItemsLabel": {
       "type": "string"
+    },
+    "backURL": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::path.path"
     }
   }
 }

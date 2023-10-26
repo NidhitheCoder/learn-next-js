@@ -13,10 +13,12 @@ const ProductsList = ({ products }: ProductListProps) => {
   return (
     <div>
       <Navbar
-        backLabel="Back to home"
-        backPath="/"
-        pageTitle="Product list page"
-        itemsLength={products.length}
+        data={{
+          backLabel: "Back to home",
+          backPath: "/",
+          pageTitle: "Product list page",
+          itemsLength: products.length,
+        }}
       />
       <div className="p-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
         {products.map((product) => {

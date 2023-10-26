@@ -17,16 +17,23 @@ interface ProductProps {
 
 const Product = ({ product }: ProductProps) => {
   const productAttributes = product.attributes;
+  const imageAttributeFormat =
+    productAttributes.imageURL?.data.attributes.formats;
+
   const productImagePath =
-    productAttributes.imageURL?.data.attributes.formats.medium?.url ||
-    productAttributes.imageURL?.data.attributes.formats.thumbnail?.url;
+    imageAttributeFormat?.medium?.url || imageAttributeFormat?.thumbnail?.url;
   const productImageURL = `http://localhost:1337${productImagePath}`;
   const productCategories = productAttributes.categories?.data;
   const productSeller = productAttributes.seller?.data.attributes;
 
   return (
     <div className="grid grid-cols-6 w-full h-full min-h-screen bg-gradient-to-r from-black via-slate-800 to-black">
-      <Navbar backLabel="Back" backPath="/products" />
+      <Navbar
+        data={{
+          backLabel: "Back",
+          backPath: "/products",
+        }}
+      />
       <div className="flex flex-col justify-center col-start-2 col-end-4">
         <img className="w-full h-auto max-w-lg" src={productImageURL} />
       </div>

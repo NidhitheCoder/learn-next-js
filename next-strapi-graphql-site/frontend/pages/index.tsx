@@ -1,33 +1,44 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import Link from "next/link";
+import client from "@/graphql/client";
+import { PAGES_LIST } from "@/graphql/pages";
+import Navbar from "@/components/Navbar";
+import ListTree from "@/components/ListTree";
+import { useRouter } from "next/router";
+interface HomePageProps {
+  pageDetails: any;
+}
 
-const inter = Inter({ subsets: ["latin"] });
+const Home = ({ pages }: any) => {
+  const router = useRouter();
+  const pageDetails = pages?.[0];
+  const paths = pageDetails.attributes.paths?.data;
+  const navbarData = pageDetails.sections?.find(
+    (section: any) => section.__typename === "ComponentComponentsNavbar"
+  );
 
-export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen w-full">
-      <h1 className="mb-4 p-4 font-bold text-4xl text-violet-700">
-        Welcome !!!
-      </h1>
-      <ul>
-        <li>
-          <Link
-            className="text-xl text-blue-700 font-bold underline"
-            href="/products"
-          >
-            Products
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="text-xl text-blue-700 font-bold underline"
-            href="/sellers"
-          >
-            Sellers
-          </Link>
-        </li>
-      </ul>
+    <div className="flex flex-col min-h-screen w-full">
+      {router.pathname === "/" && <ListTree paths={paths} />}
+      {router.pathname === "/products" && (
+        <div>
+          <Navbar data={navbarData} />
+          <ListTree paths={paths} />
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export const getStaticProps = async () => {
+  const { data } = await client.query({
+    query: PAGES_LIST,
+  });
+  const pages = data.pages.data;
+
+  return {
+    props: {
+      pages,
+    },
+  };
+};
+
+export default Home;
