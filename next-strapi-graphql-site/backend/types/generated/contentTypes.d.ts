@@ -710,6 +710,36 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiImageBaseUrlImageBaseUrl extends Schema.SingleType {
+  collectionName: 'image_base_urls';
+  info: {
+    singularName: 'image-base-url';
+    pluralName: 'image-base-urls';
+    displayName: 'imageBaseUrl';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::image-base-url.image-base-url',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::image-base-url.image-base-url',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -858,6 +888,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::image-base-url.image-base-url': ApiImageBaseUrlImageBaseUrl;
       'api::page.page': ApiPagePage;
       'api::path.path': ApiPathPath;
       'api::product.product': ApiProductProduct;

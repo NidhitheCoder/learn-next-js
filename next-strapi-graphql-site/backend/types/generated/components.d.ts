@@ -24,9 +24,13 @@ export interface ComponentsNavbar extends Schema.Component {
   };
   attributes: {
     backLabel: Attribute.String;
-    backURL: Attribute.String;
     pageTitle: Attribute.String;
     ItemsLabel: Attribute.String;
+    backURL: Attribute.Relation<
+      'components.navbar',
+      'oneToOne',
+      'api::path.path'
+    >;
   };
 }
 
