@@ -7,7 +7,6 @@ interface HomePageProps {
 }
 
 const Home = ({ pages }: any) => {
-  console.log(pages);
   const pageDetails = pages?.[0].attributes;
   const paths = pageDetails.paths?.data;
   const navbarData = pageDetails.sections?.find(

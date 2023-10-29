@@ -1,3 +1,5 @@
+import { Categories } from "./categories";
+
 interface PathData {
   attributes: {
     pathName: string;
@@ -14,21 +16,7 @@ interface NavbarComponentProps {
   itemsLabel: string;
 }
 
-interface CategoryData {
-  id: string;
-  attributes: {
-    name: string;
-    color: string;
-  };
-}
-
-interface CategoryComponentProps {
-  categories: {
-    data: CategoryData[];
-  };
-}
-
-type Section = CategoryComponentProps | NavbarComponentProps;
+type Section = Categories | NavbarComponentProps;
 
 interface Pages {
   attributes: {
