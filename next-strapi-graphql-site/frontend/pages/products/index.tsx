@@ -26,7 +26,7 @@ const ProductsList = ({ products }: ProductListProps) => {
           const seller = productAttributes.seller?.data.attributes.name;
           const categories = productAttributes?.categories?.data;
           const image =
-            productAttributes.imageURL?.data.attributes.formats.thumbnail.url;
+            productAttributes.imageURL?.data.attributes.formats?.thumbnail?.url;
 
           return (
             <Link
