@@ -27,7 +27,7 @@ query {
               }
           },
             pageTitle,
-            ItemsLabel
+            itemsLabel
           },
             ... on ComponentComponentsCategoryList {
               __typename
@@ -74,7 +74,7 @@ export const SINGLE_PAGE = gql(`query ($pageName: String) {
               }
             },
             pageTitle,
-            ItemsLabel
+            itemsLabel
           },
             ... on ComponentComponentsCategoryList {
               __typename

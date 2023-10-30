@@ -25,7 +25,7 @@ export interface ComponentsNavbar extends Schema.Component {
   attributes: {
     backLabel: Attribute.String;
     pageTitle: Attribute.String;
-    ItemsLabel: Attribute.String;
+    itemsLabel: Attribute.String;
     backURL: Attribute.Relation<
       'components.navbar',
       'oneToOne',

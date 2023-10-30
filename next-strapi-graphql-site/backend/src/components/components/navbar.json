@@ -13,7 +13,7 @@
     "pageTitle": {
       "type": "string"
     },
-    "ItemsLabel": {
+    "itemsLabel": {
       "type": "string"
     },
     "backURL": {
